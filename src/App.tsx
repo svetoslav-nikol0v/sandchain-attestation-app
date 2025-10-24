@@ -137,7 +137,7 @@ function App() {
 
     try {
       const nonce = await easContract.getNonce(recipient);
-      if (!nonce) {
+      if (nonce === null || nonce === undefined) {
         setError("Failed to get nonce");
         setIsLoading(false);
         return;
